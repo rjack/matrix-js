@@ -15,9 +15,28 @@ this.Matrix = (function ()
 			}
 
 			return result;
+		},
+
+
+
+		scalar_product = function (u, v)
+		{
+			var i, result = 0;
+
+			if (v.length !== u.length) {
+				throw "Lengths don't match";
+			}
+
+			for (i = 0; i < u.length; i++) {
+				result += u[i] * v[i];
+			}
+
+			return result;
 		};
 
+
 	return {
-		sum: sum
+		sum: sum,
+		scalar_product: scalar_product
 	};
 }());
