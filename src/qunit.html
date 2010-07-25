@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Matrix.js | Unit Test Suite</title>
+		<link type="text/css" href="css/qunit.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<h1 id="qunit-header">Matrix.js Unit Test Suite</h1>
+		<h2 id="qunit-banner"></h2>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+
+		<script type="text/javascript" src="js/lib/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/test/qunit.js"></script>
+		<script type="text/javascript" src="js/matrix.js"></script>
+		<script type="text/javascript">
+module("vectors");
+
+test("sum", 2, function ()
+	{
+		var u = [1, 2, 3, 4],
+			v = [5, 6, 7, 8],
+			r = Matrix.sum(u, v);
+
+		same(r, [6, 8, 10, 12]);
+		try {
+			Matrix.sum([1], [1, 2]);
+		} catch (e) {
+			ok(true, "sum throws an error if vectors have different lengths");
+		}
+	});
+		</script>
+	</body>
+</html>
